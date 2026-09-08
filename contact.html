@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Reef to Table</title>
+  <meta name="description" content="Get in touch with Reef to Table for inquiries, bookings, or to learn more.">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-row">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo.png" alt="Reef to Table" class="logo">
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="product.html">Product</a></li>
+          <li><a href="businesses.html">Businesses</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-main">
+
+    <div class="contact-info reveal">
+      <h1>Contact Us</h1>
+      <p>For inquiries, to learn more, or to share your thoughts, please contact Keegan at
+        <a href="mailto:keegan@reeftotable.com">keegan@reeftotable.com</a>
+        or fill out the information here to send us a message.</p>
+      <p>Thank you!</p>
+    </div>
+
+    <!--
+      NOTA PARA EL DESARROLLADOR:
+      Este formulario es solo de front-end. GitHub Pages no procesa formularios.
+      Antes de publicar, conecta el atributo "action" a un servicio como
+      Formspree, EmailJS o Getform para que los envíos lleguen por correo.
+    -->
+    <form class="contact-form reveal" id="contactForm" action="#" method="POST">
+      <fieldset class="name-fieldset">
+        <legend>Name</legend>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="first-name">First Name <span class="req">(required)</span></label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name <span class="req">(required)</span></label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-field">
+        <label for="email">Email <span class="req">(required)</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message <span class="req">(required)</span></label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-send">Send</button>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="images/logo.png" alt="Reef to Table" class="footer-logo">
+      <p class="footer-copy">Copyright &copy; 2026 AccessFlora LLC All Rights Reserved</p>
+      <a href="mailto:keegan@reeftotable.com" class="footer-email">keegan@reeftotable.com</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

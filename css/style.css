@@ -1,0 +1,617 @@
+/* ==========================================================================
+   Reef to Table — style.css
+   CSS puro, sin frameworks ni dependencias.
+   Organizado en secciones: variables, base, header/nav, footer,
+   componentes de página, galería, formulario, animaciones, responsive.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables
+   -------------------------------------------------------------------------- */
+:root {
+  --color-navy: #2D3278;
+  --color-navy-dark: #1E3C80;
+  --color-text: #141413;
+  --color-text-soft: #4a4a4a;
+  --color-cream: #F5F5F5;
+  --color-white: #FFFFFF;
+  --color-border: #d9d9e3;
+
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --max-width: 1150px;
+  --gap-lg: 3rem;
+  --gap-md: 1.5rem;
+  --gap-sm: 0.75rem;
+
+  --radius: 4px;
+  --transition: 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset / base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.muted {
+  color: var(--color-text-soft);
+  font-weight: 400;
+}
+
+main {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header / navegación
+   -------------------------------------------------------------------------- */
+.site-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo-link {
+  flex: 0 0 auto;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 20;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-navy);
+  margin: 5px 0;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.site-nav {
+  margin-top: 1.25rem;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  font-size: 0.95rem;
+  color: var(--color-navy);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  border-bottom-color: var(--color-navy);
+}
+
+/* --------------------------------------------------------------------------
+   4. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-white);
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--gap-lg);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  height: 70px;
+  width: auto;
+  opacity: 0.55;
+}
+
+.footer-copy {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  text-align: center;
+  flex: 1;
+}
+
+.footer-email {
+  font-size: 0.95rem;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero (index.html)
+   -------------------------------------------------------------------------- */
+.hero {
+  max-width: var(--max-width);
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+  align-items: center;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-quote {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+.hero-quote em {
+  font-style: italic;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+}
+
+.hero-cta {
+  font-size: 1.15rem;
+}
+
+.hero-contact {
+  font-size: 1rem;
+}
+
+.hero-contact a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.hero-media img {
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+.split-media {
+  max-width: var(--max-width);
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.split-media .media-col.small {
+  max-width: 320px;
+}
+
+/* Divisor decorativo tipo "moño" (recreado con CSS, sin imagen) */
+.shape-divider {
+  margin-top: 2.5rem;
+  height: 220px;
+  background-color: var(--color-navy);
+  clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 70%);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.shape-divider-rule {
+  display: block;
+  width: 120px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-left: 8%;
+}
+
+.special-section {
+  max-width: var(--max-width);
+  margin: -60px auto 0;
+  padding: 0 1.5rem 3rem;
+  background-color: var(--color-navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+  align-items: center;
+  color: var(--color-white);
+}
+
+.special-text h2 {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.special-text p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.special-media img {
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   6. Tarjeta de contenido (product.html / businesses.html)
+   -------------------------------------------------------------------------- */
+.content-card {
+  max-width: var(--max-width);
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: var(--gap-md);
+  align-items: stretch;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card-box {
+  border: 2px solid var(--color-navy);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.product-list {
+  list-style: disc;
+}
+
+.product-list > li {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.product-list ul {
+  list-style: circle;
+  font-weight: 400;
+  margin-top: 0.4rem;
+}
+
+.cta-band {
+  max-width: var(--max-width);
+  margin: 2.5rem auto 0;
+  padding: 3rem 1.5rem;
+  background-color: var(--color-navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+  align-items: center;
+}
+
+.cta-media img {
+  border-radius: var(--radius);
+  max-width: 320px;
+}
+
+.cta-text {
+  color: var(--color-white);
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Galería (gallery.html)
+   -------------------------------------------------------------------------- */
+.gallery-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.gallery-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   8. Contacto (contact.html)
+   -------------------------------------------------------------------------- */
+.contact-main {
+  max-width: var(--max-width);
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+  align-items: start;
+}
+
+.contact-info h1 {
+  font-size: 2.4rem;
+}
+
+.contact-info a {
+  text-decoration: underline;
+}
+
+.contact-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.contact-form legend {
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.req {
+  color: var(--color-text-soft);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 1px;
+}
+
+.btn-send {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 2.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.btn-send:hover {
+  background-color: var(--color-navy-dark);
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.form-status.success {
+  color: #1e7a3f;
+}
+
+.form-status.error {
+  color: #b3261e;
+}
+
+/* --------------------------------------------------------------------------
+   9. Animación de aparición al hacer scroll (reemplazo del fadeIn nativo)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .content-card {
+    grid-template-columns: 1fr;
+  }
+
+  .card-media img {
+    height: 260px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+
+  .site-nav.is-open {
+    max-height: 300px;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .hero,
+  .special-section,
+  .cta-band,
+  .contact-main {
+    grid-template-columns: 1fr;
+  }
+
+  .special-section {
+    margin-top: -40px;
+  }
+
+  .hero-text {
+    order: 2;
+  }
+
+  .hero-media {
+    order: 1;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-quote {
+    font-size: 1.3rem;
+  }
+
+  .contact-info h1 {
+    font-size: 1.9rem;
+  }
+}
